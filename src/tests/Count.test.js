@@ -59,3 +59,21 @@ test('should decrement count on - press', () => {
 	
 	expect(getCount(clickedCounter)).toBe(-1)
 })
+
+test('should reset count to 0 on "reset" press', () => {
+  const {queryByText} = render(
+    <Count initialCount={0} />
+	)
+
+	fireEvent.click(queryByText('+'))
+	fireEvent.click(queryByText('+'))
+
+	const counter = queryByText(countRegex)
+	expect(getCount(counter)).toBe(2)
+	
+	// increment count
+	fireEvent.click(queryByText('Reset'))
+	const clickedCounter = queryByText(countRegex)
+	
+	expect(getCount(clickedCounter)).toBe(0)
+})
