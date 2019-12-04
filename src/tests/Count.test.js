@@ -45,3 +45,17 @@ test('should increment count on + press', () => {
 	expect(getCount(clickedCounter)).toBe(1)
 })
 
+test('should decrement count on - press', () => {
+  const {queryByText} = render(
+    <Count initialCount={0} />
+	)
+	
+	const counter = queryByText(countRegex)
+	expect(getCount(counter)).toBe(0)
+	
+	// increment count
+	fireEvent.click(queryByText('-'))
+	const clickedCounter = queryByText(countRegex)
+	
+	expect(getCount(clickedCounter)).toBe(-1)
+})
