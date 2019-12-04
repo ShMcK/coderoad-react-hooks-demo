@@ -6,7 +6,7 @@ const Count = ({ initialCount }) => {
     return {
       value: count,
       increase: () => setCount(count + 1),
-      decrease: () => {/* decrement couny by one */},
+      decrease: () => setCount(count - 1),
       reset: () => {/* reset count to initial count */}
     }
 	}
