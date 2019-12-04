@@ -5,7 +5,7 @@ const Count = ({ initialCount }) => {
     const [count, setCount] = useState(initialCount)
     return {
       value: count,
-      increase: () => {/* increment count by one */},
+      increase: () => setCount(count + 1),
       decrease: () => {/* decrement couny by one */},
       reset: () => {/* reset count to initial count */}
     }
